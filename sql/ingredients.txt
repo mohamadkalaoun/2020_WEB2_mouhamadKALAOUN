@@ -1,0 +1,3 @@
+CREATE TABLE `i_stema`.`ingredients` ( `ingredient_id` INT(11) NOT NULL AUTO_INCREMENT , `name` VARCHAR(255) NOT NULL , `image` VARCHAR(255) NOT NULL , `nutritional_facts` VARCHAR(255) NOT NULL , `allergic_facts` TEXT NOT NULL , `additive_facts` TEXT NOT NULL , PRIMARY KEY (`ingredient_id`)) ENGINE = MyISAM;
+
+ALTER TABLE `ingredients` CHANGE `image` `image` VARCHAR(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL, CHANGE `nutritional_facts` `nutritional_facts` VARCHAR(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL, CHANGE `allergic_facts` `allergic_facts` TEXT CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL, CHANGE `additive_facts` `additive_facts` TEXT CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL;

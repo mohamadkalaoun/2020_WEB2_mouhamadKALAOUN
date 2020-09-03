@@ -1,0 +1,5 @@
+CREATE TABLE `i_stema`.`products` ( `product_id` INT(11) NOT NULL AUTO_INCREMENT , `product_name` VARCHAR(255) NOT NULL , `barcode` INT(11) NOT NULL , `variant` VARCHAR(255) NOT NULL , `brand` VARCHAR(255) NOT NULL , `nutriscore` VARCHAR(255) NOT NULL , `pingredients` VARCHAR(255) NOT NULL , `serving` VARCHAR(255) NOT NULL , `unit` VARCHAR(255) NOT NULL , `nutritiional_scale` VARCHAR(255) NOT NULL , `info` TEXT NULL , `images` VARCHAR(255) NULL , PRIMARY KEY (`product_id`)) ENGINE = MyISAM;
+
+ALTER TABLE `products` CHANGE `barcode` `barcode` VARCHAR(255) NOT NULL;
+
+ALTER TABLE `products` CHANGE `nutritional_scale` `nutritional_scale` TEXT CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL;

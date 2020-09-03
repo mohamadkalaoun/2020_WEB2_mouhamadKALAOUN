@@ -1,0 +1,5 @@
+CREATE TABLE `i_stema`.`users` ( `user_id` INT(11) NOT NULL AUTO_INCREMENT , `name` VARCHAR(255) NOT NULL , `phone_nbr` INT(11) NOT NULL , `user_email` VARCHAR(255) NOT NULL , `password` VARCHAR(255) NOT NULL , `verified` VARCHAR(255) NOT NULL , PRIMARY KEY (`user_id`)) ENGINE = MyISAM;
+
+
+ALTER TABLE `users` ADD `p_history` LONGTEXT NULL DEFAULT NULL AFTER `verified`;
+
