@@ -1,0 +1,1 @@
+CREATE TABLE `i_stema`.`variant` ( `variant_id` INT(11) NOT NULL AUTO_INCREMENT , `product_id` INT(11) NOT NULL , `variant_name` VARCHAR(128) NOT NULL , `barcode` VARCHAR(128) NOT NULL , PRIMARY KEY (`variant_id`)) ENGINE = MyISAM;
