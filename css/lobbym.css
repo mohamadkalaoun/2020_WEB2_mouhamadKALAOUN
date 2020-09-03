@@ -1,0 +1,18 @@
+*{
+		box-sizing: border-box;
+	}
+.main{
+		align-items: center ;
+		display:block;
+  		width:622px;
+  		text-align:center;
+		height: 1200px;
+		align-self: center ;
+		max-width: 622px;
+ 		margin: auto;
+  		padding: 10px;
+  		background-color: hsl(144deg 100% 50%);
+	}
+a{
+	font-size :35px ;
+}

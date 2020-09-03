@@ -1,0 +1,58 @@
+h2{
+  background:#34cc3a;
+  width:100% ;
+  height:auto ;
+  font-size :56px ;
+  text-align:center ; 
+  
+  padding-bottom: 10px ; 
+}
+.input-group {
+  width : 100% ;
+  margin: 10px 0px 10px 0px;
+}
+.input-group label {
+  display: block;
+  text-align: left;
+  margin: 3px;
+  width : 100% ;
+  font-size: 23px;
+}
+.input-group input {
+  height: 40px;
+  width: 100%;
+  padding: 5px 10px;
+  font-size: 26px;
+  border-radius: 5px;
+  border: 1px solid #34cc3a;
+}
+.btn {
+  padding: 10px;
+  font-size: 25px;
+  color: white;
+  background: #34cc3a;
+  border: none;
+  border-radius: 5px;
+  width:120px ;
+  text-align:center ;
+}
+.error {
+  width: 92%; 
+  margin: 0px auto; 
+  padding: 10px; 
+  border: 1px solid #a94442; 
+  color: #a94442; 
+  background: #f2dede; 
+  border-radius: 5px; 
+  text-align: left;
+  font-size: 30px;
+}
+.success {
+  color: #3c763d; 
+  background: #dff0d8; 
+  border: 1px solid #3c763d;
+  margin-bottom: 20px;
+}
+p{
+  font-size: 20px;
+}

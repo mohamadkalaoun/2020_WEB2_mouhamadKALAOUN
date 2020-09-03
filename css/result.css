@@ -1,0 +1,57 @@
+#soulA{
+	border-collapse: collapse;
+  	border: 24px solid #009206;
+  	font-size :80px ;
+  	width :100% ;
+  	text-align :center ;
+  	font-size:60px ;
+  	
+}
+#soulB{
+              border-collapse: collapse;
+              border: 24px solid #94f752;
+              font-size :80px ;
+              width :100% ;
+              text-align :center ;
+              font-size:60px ;
+            }
+#soulC{
+              border-collapse: collapse;
+              border: 24px solid #eded00;
+              font-size :80px ;
+              width :100% ;
+              text-align :center ;
+              font-size:60px ;
+            }
+#soulD{
+              border-collapse: collapse;
+              border: 24px solid #f7b63e;
+              font-size :80px ;
+              width :100% ;
+              text-align :center ;
+              font-size:60px ;
+            }
+#soulE{
+              border-collapse: collapse;
+              border: 24px solid #d60000;
+              font-size :80px ;
+              width :100% ;
+              text-align :center ;
+              font-size:60px ;
+            }
+#mateA{
+          color: #009206;
+          
+        }
+#mateB{
+          color: #94f752;
+        }
+#mateC{
+          color: #eded00;
+        }
+#mateD{
+          color: #f7b63e;
+        }
+#mateE{
+          color: #d60000;
+        }
