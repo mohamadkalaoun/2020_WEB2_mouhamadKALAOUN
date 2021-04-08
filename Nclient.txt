@@ -1,0 +1,198 @@
+
+import java.awt.event.WindowEvent;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowListener;
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.text.NumberFormat;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.text.NumberFormatter;
+import javax.swing.text.*;
+
+public class Nclient implements WindowListener {
+
+    private JFrame f = new JFrame("");
+
+    JLabel northLabel, LfullName, Lphone, Ldate, Lgender;
+    JTextField TfullName, Tphone, Tdate;
+    JRadioButton jRadioButton1, jRadioButton2;
+    ButtonGroup G1;
+    JTable table = new JTable();
+
+    public Nclient() {
+
+       
+        f.addWindowListener(this);
+        f.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+
+        JPanel mainPanel = new JPanel();
+
+        northLabel = new JLabel("Add New Customer \n", SwingConstants.CENTER);
+        mainPanel.setLayout(new BorderLayout());
+        Font newLabelFont = new Font(northLabel.getFont().getName(), Font.ITALIC, 31);
+        northLabel.setFont(newLabelFont);
+        northLabel.setForeground(Color.BLUE);
+
+        /////////////////////////////////////////////////////////////
+        JPanel minipanel1 = new JPanel();
+        LfullName = new JLabel("Full Name", SwingConstants.CENTER);
+        TfullName = new JTextField();
+        TfullName.setPreferredSize(new Dimension(550, 20));
+
+        Lphone = new JLabel("Phone Number", SwingConstants.CENTER);
+        Tphone = new JTextField();
+        Tphone.setPreferredSize(new Dimension(550, 20));
+
+        Ldate = new JLabel("Annee De Naissance", SwingConstants.CENTER);
+        Tdate = new JTextField();
+        Tdate.setPreferredSize(new Dimension(550, 20));
+        minipanel1.setLayout(new GridLayout(4, 2));
+        minipanel1.add(LfullName);
+        minipanel1.add(TfullName);
+        minipanel1.add(Lphone);
+        minipanel1.add(Tphone);
+        minipanel1.add(Ldate);
+        minipanel1.add(Tdate);
+
+        /////////////////////////////////////////////////////////////
+        JPanel minipanel2 = new JPanel();
+        Lgender = new JLabel("Gender", SwingConstants.CENTER);
+        jRadioButton1 = new JRadioButton();
+        jRadioButton2 = new JRadioButton();
+        G1 = new ButtonGroup();
+        jRadioButton1.setText("Male");
+        jRadioButton2.setText("Female");
+        G1.add(jRadioButton1);
+        G1.add(jRadioButton2);
+        JButton save = new JButton("Sauvegarder");
+        JButton annule = new JButton("Annuler");
+
+        annule.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                TfullName.setText("");
+                Tdate.setText("");
+                G1.clearSelection();
+            }
+        });
+
+        Object[] columns = {"Prenom", "Nom", "Nationalite", "Annee De Naissance", "Genre"};
+        DefaultTableModel model = new DefaultTableModel();
+        model.setColumnIdentifiers(columns);
+
+        // set the model to the table
+        table.setModel(model);
+
+        Object[] row = new Object[5];
+
+        // Change A JTable Background Color, Font Size, Font Color, Row Height
+        table.setBackground(Color.LIGHT_GRAY);
+        table.setForeground(Color.black);
+        Font font = new Font("", 1, 22);
+        table.setFont(font);
+        table.setRowHeight(30);
+
+        save.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                int errors = 0;
+                String wasf = "";
+                if (TfullName.getText().length() < 3) {
+                    errors += 1;
+                    wasf += "- le prenom doit etre former de plus que 2 lettres \n";
+                }
+                if (errors > 0) {
+                    JOptionPane.showMessageDialog(f, wasf, "Error", JOptionPane.ERROR_MESSAGE);
+                } else if (errors == 0) {
+
+                    row[0] = TfullName.getText();
+
+                    row[1] = Tdate.getText();
+
+                    if (jRadioButton1.isSelected()) {
+                        row[3] = "M";
+                    } else {
+                        row[3] = "F";
+                    }
+
+                    model.addRow(row);
+                }
+
+            }
+        });
+
+        save.setPreferredSize(new Dimension(10, 10));
+        annule.setPreferredSize(new Dimension(10, 10));
+        minipanel2.setLayout(new GridLayout(2, 3));
+        minipanel2.add(Lgender);
+        minipanel2.add(jRadioButton1);
+        minipanel2.add(jRadioButton2);
+        minipanel2.add(save);
+        minipanel2.add(annule);
+
+        /////////////////////////////////////////////////////////////
+        JPanel minipanel12 = new JPanel();
+        minipanel12.setLayout(new GridLayout(2, 1));
+        minipanel12.add(minipanel1);
+        minipanel12.add(minipanel2);
+
+        /////////////////////////////////////////////////////////////
+        JScrollPane sp = new JScrollPane(table);
+
+        /////////////////////////////////////////////////////////////
+        mainPanel.add(northLabel, BorderLayout.NORTH);
+        mainPanel.add(minipanel12, BorderLayout.CENTER);
+        mainPanel.add(sp, BorderLayout.SOUTH);
+        f.add(mainPanel);
+        f.setSize(1200, 700);
+        f.pack();
+        f.setVisible(true); 
+        
+      Tphone.addKeyListener(new KeyAdapter() {
+         public void keyTyped(KeyEvent e) {
+           char c = e.getKeyChar();
+           if (!(Character.isDigit(c) ||
+              (c == KeyEvent.VK_BACK_SPACE) ||
+              (c == KeyEvent.VK_DELETE))) {
+                e.consume();
+              }
+         }
+       });
+
+    }
+
+    
+    public void windowClosed(WindowEvent arg0) {
+    }
+
+    public void windowActivated(WindowEvent arg0) {
+    }
+
+    public void windowClosing(WindowEvent arg0) {
+        mainPage.setVar(1);
+    }
+
+    public void windowDeactivated(WindowEvent arg0) {
+    }
+
+    public void windowDeiconified(WindowEvent arg0) {
+    }
+
+    public void windowIconified(WindowEvent arg0) {
+    }
+
+    public void windowOpened(WindowEvent arg0) {
+    }
+
+    public static void main(String args[]) {
+        
+    }
+}

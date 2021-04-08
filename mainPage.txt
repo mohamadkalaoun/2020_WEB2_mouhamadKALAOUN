@@ -1,0 +1,116 @@
+
+import java.util.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.*;
+
+public class mainPage extends JFrame implements ActionListener {  
+
+    static JMenuBar mbar; 
+    static JMenu clients , vehicules , assurancePlan , policeAssurance , claims , settlements;
+    static JMenuItem Nclient , Sclient , Nvehicule , Svehicule , NassPlan , SassPlan , Npolice , Spolice , Nrecl , Srecl , Nsett ,Ssett ;
+    private JPanel panel;
+    private static int var;
+    
+ public mainPage() {
+     
+     setTitle("Insurance Company");
+     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+     setLayout(new BorderLayout());
+     mbar = new JMenuBar();
+     
+     ////////////// clients section ////////////////////
+     
+     clients = new JMenu("Customers");
+     Nclient = new JMenuItem("New customer");
+     Sclient = new JMenuItem("Search for a customer");
+     Nclient.addActionListener(this);
+     clients.add(Nclient);
+     clients.add(Sclient);
+     mbar.add(clients);
+     
+     ////////////// vehicules section ////////////////////
+     
+     vehicules = new JMenu("vehicules");
+     Nvehicule = new JMenuItem("New vehicule");
+     Svehicule = new JMenuItem("Search for a vehicule");
+     //Nvehicule.addActionListener(this);
+     vehicules.add(Nvehicule);
+     vehicules.add(Svehicule);
+     mbar.add(vehicules); 
+     
+     ////////////// Inssurance plan section ////////////////////
+     
+     assurancePlan = new JMenu("Inssurance plan");
+     NassPlan = new JMenuItem("New Inssurance Plan");
+     SassPlan = new JMenuItem("Search For an Inssurance Plan");
+     //Nvehicule.addActionListener(this);
+     assurancePlan.add(NassPlan);
+     assurancePlan.add(SassPlan);
+     mbar.add(assurancePlan); 
+     
+     ////////////// Insurance policy ////////////////////
+     
+     policeAssurance = new JMenu("Insurance policy");
+     Npolice = new JMenuItem("New Insurance policy");
+     Spolice = new JMenuItem("Search For an Insurance policy");
+     //Nvehicule.addActionListener(this);
+     policeAssurance.add(Npolice);
+     policeAssurance.add(Spolice);
+     mbar.add(policeAssurance);
+     
+     ////////////// claims section ////////////////////
+     
+     claims = new JMenu("claims");
+     Nrecl = new JMenuItem("New claim");
+     Srecl = new JMenuItem("Search for a claim");
+     //Nvehicule.addActionListener(this);
+     claims.add(Nrecl);
+     claims.add(Srecl);
+     mbar.add(claims);
+     
+     ////////////// settlements section ////////////////////
+     
+     settlements = new JMenu("settlements");
+     Nsett = new JMenuItem("New settlement");
+     Ssett = new JMenuItem("Search for a settlement");
+     //Nvehicule.addActionListener(this);
+     settlements.add(Nsett);
+     settlements.add(Ssett);
+     mbar.add(settlements);
+     
+     
+     setJMenuBar(mbar);
+     panel = new JPanel();
+     add(panel, BorderLayout.NORTH);
+     setJMenuBar(mbar);
+     //full screen :
+     this.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+     this.setUndecorated(false);
+     setVisible(true);
+     setVar(1);
+ }
+
+ public int getVar() {
+	return var;
+}
+
+ static void setVar(int var1) {
+	var = var1;
+}
+
+public void actionPerformed(ActionEvent evt) {
+		//this.dispose();
+	 	
+	 	if (getVar() == 1 ) { 
+	 		new Nclient();
+	 		setVar(2);
+	 	}
+	 	
+ }
+ 
+	
+public static void main(String args[])  {  
+	new mainPage();  }
+} 

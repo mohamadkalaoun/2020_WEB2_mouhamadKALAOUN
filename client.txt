@@ -1,0 +1,9 @@
+import java.util.*;
+
+public class client {
+    
+    private String full_name;
+    private Integer phone_number ;
+    private Integer driving_card ;
+    
+}
